@@ -53,7 +53,7 @@ def download_transmcodes():
         "authority": "e14segundavueltapresidente.registraduria.gov.co",
         "accept-encoding": "gzip, deflate, br, zstd",
         "get":"GET",
-        "Referer":f"https://e14segundavueltapresidente.registraduria.gov.co/departamento/{dep}",        
+        "Referer":f"https://e14segundavueltapresidente.registraduria.gov.co/departamento/{dep if dep is not None else "01"}",        
         # "Referer":f"https://divulgacione14presidente.registraduria.gov.co/departamento/{dep}",        
         "sec-fetch-dest": "empty",
         "sec-fetch-mode": "cors",
