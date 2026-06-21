@@ -42,16 +42,18 @@ awsauth = AWS4Auth(
 
 ## DESCARGAR JSON DE CODIGOS
 def download_transmcodes():
-    txcodesurl="https://divulgacione14presidente.registraduria.gov.co/assets/temis/divipol_json/allTransmissionCodes.json"
+    txcodesurl="https://e14segundavueltapresidente.registraduria.gov.co/assets/temis/divipol_json/allTransmissionCodes.json"
+    # txcodesurl="https://divulgacione14presidente.registraduria.gov.co/assets/temis/divipol_json/allTransmissionCodes.json"
     codes_headers={
         "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
         "accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7",
-        "authority": "divulgacione14presidente.registraduria.gov.co",
+        "authority": "e14segundavueltapresidente.registraduria.gov.co",
         "accept-encoding": "gzip, deflate, br, zstd",
         "get":"GET",
-        "Referer":f"https://divulgacione14presidente.registraduria.gov.co/departamento/{dep}",        
-        "sec-fetch-dest": "document",
-        "sec-fetch-mode": "navigate",
+        "Referer":f"https://e14segundavueltapresidente.registraduria.gov.co/departamento/{dep}",        
+        # "Referer":f"https://divulgacione14presidente.registraduria.gov.co/departamento/{dep}",        
+        "sec-fetch-dest": "empty",
+        "sec-fetch-mode": "cors",
         "sec-fetch-site": "none",
     }
     r = requests.get(txcodesurl, headers=codes_headers, timeout=10, allow_redirects=True)
@@ -105,7 +107,8 @@ os.makedirs("pdf", exist_ok=True)
 
 def build_pdf_url(dep, mun, zona, puesto, mesa, corp_text, expected_name):
     return (
-        "https://divulgacione14presidente.registraduria.gov.co"
+        # "https://divulgacione14presidente.registraduria.gov.co"
+        "https://e14segundavueltapresidente.registraduria.gov.co"
         f"/assets/temis/pdf/{dep}/{mun}/{zona}/{puesto}/{mesa}/{corp_text}/{expected_name}"
     )
 
@@ -113,7 +116,8 @@ def download_pdf(url, path):
     headers={
         "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
         "accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7",
-        "authority": "divulgacione14presidente.registraduria.gov.co",
+        "authority": "e14segundavueltapresidente.registraduria.gov.co",
+        # "authority": "divulgacione14presidente.registraduria.gov.co",
         "get":"GET",
         "accept-encoding": "gzip, deflate, br, zstd",
         "accept-language": "en-GB,en;q=0.9,en-US;q=0.8,es;q=0.7,zh-CN;q=0.6,zh;q=0.5,es-MX;q=0.4",
