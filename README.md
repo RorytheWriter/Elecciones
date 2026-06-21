@@ -6,7 +6,7 @@ Hay DOS formas de usarlo:
 
 **SI NO TIENES PYTHON INSTALADO**
 
-- Ejecuta directamente el archivo *DescargarActas.exe*.
+- [Descarga haciendo click aquí](https://github.com/RorytheWriter/Elecciones/raw/refs/heads/official/DescargarActas.exe) y ejecuta directamente el archivo *DescargarActas.exe*.
 
 **SI TIENES PYTHON INSTALADO** (>=3.12, probablemente funciona desde 3.8, no lo he testeado):
 
