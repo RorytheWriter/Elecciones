@@ -5,11 +5,14 @@ import os
 from requests_aws4auth import AWS4Auth
 from datetime import datetime as dt
 
-print("\n===============\n Hola! Ten a la mano la página de la Registraduría para confirmar los códigos del Departamento y Municipio deseados.")
-dep=input("Ingresa Departamento (DOS (2) dígitos, ej 03): ").strip()
+print("\n===============\n Hola! Ten a la mano la página de la Registraduría para confirmar los códigos del Departamento (y Municipio) deseados.")
+dep=input("Ingresa Departamento (DOS (2) dígitos, ej 03) y presiona ENTER: ").strip()
 assert len(dep)==2, f"Código de departamento errado {dep}"
-mun=input("Ingresa Municipio (TRES (3) dígitos, ej 052):").strip()
-assert len(mun)==3, f"Código de municipio errado {mun}"
+mun=input("Ingresa Municipio (TRES (3) dígitos, ej 052) y presiona ENTER. Si quieres descargar TODO el departamento, sólo presiona ENTER:").strip()
+if len(mun)==0:
+    mun=None
+else:
+    assert len(mun)==3, f"Código de municipio errado {mun}"
 # dep="03" # ATLANTICO
 # mun="052" # SOLEDAD
 
@@ -87,7 +90,7 @@ def filtrar(obj, dep, mun):
 
         if (
             node.get("idDepartmentCode") == dep
-            and node.get("municipalityCode") == mun
+            and (mun is None or node.get("municipalityCode") == mun)
         ):
             yield {
                 "dep": node.get("idDepartmentCode"),
@@ -140,7 +143,7 @@ for el in resultados:
     corp="PRE"
 
     pathname=f"Dep{dep}-Mun{mun}-Zona{zona}-Puesto{puesto}-Mesa{mesa}-T{hora}_{pdfname}.pdf"
-    print(f"Descargando Zona {zona} - Puesto {puesto} - Mesa {mesa}")
+    print(f"Descargando Mun {mun} - Zona {zona} - Puesto {puesto} - Mesa {mesa}")
     download_pdf(build_pdf_url(dep,mun,zona,puesto,mesa,corp,pdfname),f"pdf/{pathname}")
 
 print("====FINALIZADO====")
