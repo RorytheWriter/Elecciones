@@ -6,7 +6,7 @@ Hay DOS formas de usarlo:
 
 **SI NO TIENES PYTHON INSTALADO**
 
-- [Descarga haciendo click aquí](https://github.com/RorytheWriter/Elecciones/raw/refs/heads/official/DescargarActas.exe) y ejecuta directamente el archivo *DescargarActas.exe* y seguir las instrucciones en el aplicativo. Si quieres puedes ver este [video tutorial corto](https://youtu.be/KWx6EB8D-Tg) (2 min).
+- [Descarga haciendo click aquí](https://github.com/RorytheWriter/Elecciones/raw/refs/heads/official/DescargarActas.exe) y ejecuta directamente el archivo *DescargarActas.exe* y seguir las instrucciones en el aplicativo. Si quieres puedes ver este [video tutorial corto](https://youtu.be/HwY67U7pz_4) (2 min).
 
 **SI TIENES PYTHON INSTALADO** (>=3.12, probablemente funciona desde 3.8, no lo he testeado):
 
