@@ -59,7 +59,7 @@ def download_transmcodes():
         "sec-fetch-mode": "cors",
         "sec-fetch-site": "none",
     }
-    r = requests.get(txcodesurl, headers=codes_headers, timeout=10, allow_redirects=True)
+    r = requests.get(txcodesurl, headers=codes_headers, timeout=60, allow_redirects=True)
     r.raise_for_status()
     if "json" not in r.headers.get("content-type", "").lower():
             raise RuntimeError(f"No devolvió JSON: {r.headers.get('content-type')}")
@@ -126,7 +126,7 @@ def download_pdf(url, path):
         "accept-language": "en-GB,en;q=0.9,en-US;q=0.8,es;q=0.7,zh-CN;q=0.6,zh;q=0.5,es-MX;q=0.4",
         "cache-control": "max-age=0"
     }
-    r = requests.get(url, headers=headers, timeout=10, allow_redirects=True)
+    r = requests.get(url, headers=headers, timeout=60, allow_redirects=True)
     r.raise_for_status()
     if "pdf" not in r.headers.get("content-type", "").lower():
         raise RuntimeError(f"No devolvió PDF: {r.headers.get('content-type')}")
