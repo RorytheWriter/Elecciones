@@ -1,4 +1,4 @@
-[**ACTUALIZADO PARA SEGUNDA VUELTA**]
+[**AHORA PERMITE DESCARGAR E14 DE DELEGADOS, TRANSMISIÓN Y CLAVEROS**]
 
 Script para descargar todos los Formularios E14 de un Departamento o Municipio completo directamente desde la Pagina de la Registraduria Nacional de Colombia. Debes tener abierto el Visor Ciudadano para poder confirmar los códigos del departamento y municipio deseado. Ejemplo, para Soledad, Atlántico, el código de Departamento es "02" (siempre 2 dígitos) y el código de Municipio es "052" (siempre 3 dígitos). También puedes descargar el **departamento completo**. Ojo, usualmente son hartos archivos en PDF, así que debes tener suficiente espacio en el disco. Se descargan automáticamente en la misma carpeta donde ejecutes el archivo.
 
@@ -12,3 +12,5 @@ Hay DOS formas de usarlo:
 
 - Si estás en Windows, descarga el .py y el .bat, y ejecuta el .bat. El .bat descarga los paquetes necesarios.
 - Si estás en Linux, estoy seguro que sabrás ejecutar el .py por tu propia cuenta. Debes instalar los paquetes (ej usando pip) boto3, requests y requests_aws4auth.
+
+**Encontraste una irregularidad en alguna mesa?** [Repórtala aquí, pronto!](https://forms.office.com/r/4z8fmpxbhB)
