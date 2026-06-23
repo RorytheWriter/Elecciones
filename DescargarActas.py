@@ -2,6 +2,7 @@ import json
 import requests
 import os
 from datetime import datetime as dt
+from email.utils import parsedate_to_datetime
 
 print("\n===============\n Hola! Ten a la mano la página de la Registraduría para confirmar los códigos del Departamento (y Municipio) deseados.")
 dep=input("Ingresa Departamento (DOS (2) dígitos, ej 03) y presiona ENTER: ").strip()
@@ -22,8 +23,16 @@ def download_file(url, path, filetype,headers,timeout=60):
     ret_head=r.headers.get("content-type", "").lower()
     if filetype not in ret_head and "octet-stream" not in ret_head:
         raise RuntimeError(f"No devolvió {filetype}: {ret_head}")
+    
+    # print(r.headers)
+    creado=r.headers["Date"] # no la uso, queda como justo ahora por culpa de open()
+    modif=parsedate_to_datetime(r.headers["Last-Modified"]).timestamp()
+    
     with open(path, "wb") as f:
         f.write(r.content)
+    os.utime(path,(modif,modif))
+    # print(os.stat(path))
+
 
 ## DELEGADOS Y TRANSMISION ES PARECIDO
 if cual in {1,2}:
